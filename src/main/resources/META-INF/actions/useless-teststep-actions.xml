@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:soapui-actions xmlns:tns="http://eviware.com/soapui/config">
+  <tns:actionGroup name="Useless RequestStep Actions"
+                   id="UselessTestRequestStepActions"
+			       class="com.eviware.soapui.impl.wsdl.actions.teststep.WsdlTestStepSoapUIActionGroup">
+      <tns:actionMapping actionId="SeperatorAction" />
+      <tns:actionMapping actionId="ShowOnlineSoapUIHelp"
+                         keyStroke="F1" param="http://blog.smartbear.com" />
+ </tns:actionGroup>
+</tns:soapui-actions>

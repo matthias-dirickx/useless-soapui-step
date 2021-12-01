@@ -1,0 +1,30 @@
+<assembly  
+    xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0 http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+    <id>soapui-step-fat</id>
+    <formats>
+        <format>jar</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
+            <useProjectArtifact>true</useProjectArtifact>
+            <outputDirectory>/</outputDirectory>
+            <unpack>true</unpack>
+            <scope>runtime</scope>
+            <includes>
+                <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - -
+                 *   Include itself to have a true self-contained JAR.    *
+                 *   If not, then apparently he makes two JAR's. One      *
+                 *   with dependencies and the other with the code. This  *
+                 *   may be desireable as well in some situations.        *
+                  - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+                <include>be.fgov.ibz.rrn.tooling:soapui-useless-step</include>
+                
+                <!-- Included dependencies start here.     -->
+                <!-- No dependencies are currently added.  -->
+            </includes>
+        </dependencySet>
+    </dependencySets>
+</assembly>

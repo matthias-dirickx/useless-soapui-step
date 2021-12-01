@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>be.mdqaconsulting.tooling</groupId>
+  <artifactId>soapui-useless-step</artifactId>
+  <version>1.0.0</version>
+  <name>SoapUI Useless Step</name>
+  <description>Launch transactions to Useless stub from the SoapUI tool</description>
+  
+  	<developers>
+		<developer>
+		    <id>mdi</id>
+		    <roles>
+		        <role>Lead</role>
+		    </roles>
+		    <name>Matthias Dirickx</name>
+		</developer>
+    </developers>
+    
+	<properties>
+       <java.version>1.8</java.version>
+       <project.encoding>UTF-8</project.encoding>
+       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	<dependencies>
+	    <!-- Core SoapUI dependencies -->
+	    <dependency>
+		    <groupId>com.smartbear.soapui</groupId>
+		    <artifactId>soapui</artifactId>
+		    <version>5.6.0</version>
+		</dependency>
+		
+		<!-- Test dependencies    -->
+		<!-- No tests yet though. -->
+		<dependency>
+	        <groupId>org.junit.jupiter</groupId>
+	        <artifactId>junit-jupiter-api</artifactId>
+	        <version>5.7.0</version>
+	        <scope>test</scope>
+	    </dependency>
+	    <dependency>
+	        <groupId>org.junit.jupiter</groupId>
+	        <artifactId>junit-jupiter-engine</artifactId>
+	        <version>5.7.0</version>
+	        <scope>test</scope>
+	    </dependency>
+		<dependency>
+		    <groupId>org.assertj</groupId>
+		    <artifactId>assertj-core</artifactId>
+		    <version>3.15.0</version>
+		    <scope>test</scope>
+		</dependency>
+    </dependencies>
+    
+    <build>
+		    <plugins>
+		        <plugin>
+		            <groupId>org.apache.maven.plugins</groupId>
+		            <artifactId>maven-compiler-plugin</artifactId>
+		            <version>3.8.0</version>
+		            <configuration>
+		                <source>${java.version}</source>
+		                <target>${java.version}</target>
+		                <encoding>${project.encoding}</encoding>
+		            </configuration>
+		        </plugin>
+		        <!-- When adding libraries that you want to package with the -->
+		        <!-- to have only one JAR to be added to SoapUI, then you    -->
+		        <!-- can use this plugin and the assembly.xml file to        -->
+		        <!-- configure what you want included. Don't include all!    -->
+		        <!-- You'll include SoapUI again as well...                  -->
+		        <!-- Launch with package assembly:single (after compilation) -->
+		        <!--
+		        <plugin>
+		            <groupId>org.apache.maven.plugins</groupId>
+		            <artifactId>maven-assembly-plugin</artifactId>
+		            <configuration>
+		                <descriptors>
+		                    <descriptor>src/main/resources/assembly.xml</descriptor>
+		                </descriptors>
+		            </configuration>
+                    <executions>  
+                        <execution>
+                            <id>make-fat-assembly</id>
+                            <phase>install</phase>  
+                            <goals>  
+                                <goal>single</goal>  
+                            </goals>
+                        </execution>  
+                    </executions>  
+		        </plugin>
+		        -->
+		    </plugins>
+	</build>  
+</project>

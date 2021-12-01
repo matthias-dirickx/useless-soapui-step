@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tns:soapui-factories xmlns:tns="http://eviware.com/soapui/config">
+     <tns:factory id="UselessTestRequestStep"
+	              factoryType="com.eviware.soapui.impl.wsdl.teststeps.registry.WsdlTestStepFactory"
+				  factoryClass="be.mdqaconsulting.tooling.soapui.steps.useless.UselessRequestStepFactory"/>
+				  
+     <tns:factory id="UselessTestStepPanelBuilder" 
+                  factoryType="com.eviware.soapui.model.util.PanelBuilderFactory" 
+                  factoryClass="be.mdqaconsulting.tooling.soapui.steps.useless.UselessTestStepPanelBuilderFactory"/>
+</tns:soapui-factories>
