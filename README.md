@@ -1,5 +1,9 @@
 # useless-soapui-step
-Rudimentary Custom step implementation based on the HTTP Teststep
+Rudimentary Custom step implementation based on the HTTP Teststep.
+
+It should be fairly simple to convert this useless library to a useful one. Just change these two items:
+- UselessClientSupport (add your useful conversion here)
+- UselessDummyClient (add the client logic here and call it with the UselessClientSupport class - just a suggestion following the existing setup for the HTTP Test Step)
 
 # How to install
 - Build JAR (mvn compile install)
