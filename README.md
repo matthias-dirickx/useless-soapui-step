@@ -1,6 +1,18 @@
 # useless-soapui-step
 Rudimentary Custom step implementation based on the HTTP Teststep
 
+# How to install
+- Build JAR (mvn compile install)
+- Put JAR in $SOAPUI_HOME/bin/ext
+- Put the content of 'factories' and 'actions' folder in the /src/main/resources/META-INF folder in the respective foldes in $SOAPUI_HOME/bin
+
+Create the foldes if they don't exist.
+
+SoapUI should pick up all the JARs in the bin/ext folder, and the definitions for the factories should be processed as well.
+
+If you want to customize where your libraries are or if you like to add additional JARs to the classpath that for some reason can't be added to bin/ext check out this post:
+https://fuckagile.wordpress.com/2015/12/03/soapui-external-libraries/
+
 # Why oh why
 When I would stumble onto this that would be exactly my question.
 There is no sensible reason for this library to exist as it is presented here. Then what was the purpose ?
@@ -24,3 +36,15 @@ It would be better to add just a factory for a custom protocol in this case thou
 
 
 # The Chain of Things
+It proved to be quite the endeavor.
+The two core items:
+- UselessTestStepPanelBuilderFactory.java
+- UselessRequestStepFactory.java
+
+These items build the Test Step and together they constitute what you experience as the Test Step in SoapUI.
+
+The reason there's that many classes is largely because of two reasons:
+1. I'm not a developer and I copy the way of working from the existing application
+2. A set of private fields that can't be overridden ruling out the possibility of just extending and overriding the Step Name for example.
+
+One thing I did not change at all. And that is the configuration. I reuse the HttpTestRequestConfig object without extension. This to disturb the schema the least amount possible. I don't want to corrupt existing projects.
